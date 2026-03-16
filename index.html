@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBACH Streetwear</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:#0a0a0a;color:white;}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 30px;border-bottom:1px solid #222;position:sticky;top:0;background:#0a0a0a;}
+.logo img{height:40px;}
+.nav-links{display:flex;gap:25px;}
+.nav-links a{text-decoration:none;color:#aaa;}
+.nav-links a:hover{color:white;}
+.icons{display:flex;gap:20px;font-size:20px;cursor:pointer;}
+.hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero h1{font-size:64px;font-weight:900;}
+.hero p{margin-top:10px;color:#aaa;}
+.hero button{margin-top:25px;padding:14px 40px;border:none;background:#1a1a1a;color:white;cursor:pointer;}
+.hero button:hover{background:#333;}
+.section{padding:70px 30px;}
+.section h2{text-align:center;margin-bottom:40px;}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.card{background:#1a1a1a;padding:20px;border-radius:6px;text-align:center;transition:0.3s;}
+.card:hover{transform:translateY(-6px);}
+.card img{width:100%;border-radius:5px;}
+.price{color:#aaa;margin-top:5px;}
+.btn{margin-top:12px;padding:10px 20px;border:none;background:#333;color:white;cursor:pointer;}
+.btn:hover{background:#555;}
+.cart{position:fixed;right:0;top:0;height:100%;width:300px;background:#111;padding:20px;transform:translateX(100%);transition:0.4s;}
+.cart.active{transform:translateX(0);}
+.modal{position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;}
+.modal.active{display:flex;}
+.form{background:#111;padding:40px;border-radius:8px;width:300px;}
+.form input{width:100%;padding:10px;margin:10px 0;border:none;background:#222;color:white;}
+.form button{width:100%;padding:12px;background:#333;border:none;color:white;cursor:pointer;}
+footer{text-align:center;padding:40px;color:#777;}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo"><img src="logo.png"></div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="#">Contact</a>
+</div>
+<div class="icons">
+<span onclick="openCart()">🛒</span>
+<span onclick="openLogin()">👤</span>
+</div>
+</nav>
+
+<section class="hero">
+<h1>LBACH STREETWEAR</h1>
+<p>Built for the next generation</p>
+<button onclick="scrollShop()">Shop Now</button>
+</section>
+
+<section class="section" id="shop">
+<h2>Oversized T‑Shirts</h2>
+<div class="products">
+<div class="card">
+<img src="shirt1.png">
+<h3>LBACH Oversized Tee</h3>
+<p class="price">₹999</p>
+<button class="btn" onclick="addCart()">Add to Cart</button>
+</div>
+</div>
+</section>
+
+<div class="cart" id="cart">
+<h2>Your Cart</h2>
+<p id="cartItems">No items yet</p>
+<button class="btn" onclick="closeCart()">Close</button>
+</div>
+
+<div class="modal" id="login">
+<div class="form">
+<h3>Login</h3>
+<input placeholder="Email">
+<input placeholder="Password" type="password">
+<button>Login</button>
+</div>
+</div>
+
+<footer>
+<p>© 2026 LBACH Streetwear</p>
+<p>Instagram</p>
+</footer>
+
+<script>
+function scrollShop(){document.getElementById("shop").scrollIntoView()}
+function openCart(){document.getElementById("cart").classList.add("active")}
+function closeCart(){document.getElementById("cart").classList.remove("active")}
+function addCart(){document.getElementById("cartItems").innerHTML="LBACH Oversized Tee added to cart"}
+function openLogin(){document.getElementById("login").classList.add("active")}
+</script>
+
+</body>
+</html>
